@@ -28,7 +28,9 @@ class SupersetException(Exception):
     message = ""
 
     def __init__(
-        self, message: str = "", exception: Optional[Exception] = None,
+        self,
+        message: str = "",
+        exception: Optional[Exception] = None,
     ) -> None:
         if message:
             self.message = message
@@ -108,7 +110,10 @@ class SupersetGenericDBErrorException(SupersetErrorFromParamsException):
         extra: Optional[Dict[str, Any]] = None,
     ) -> None:
         super().__init__(
-            SupersetErrorType.GENERIC_DB_ENGINE_ERROR, message, level, extra,
+            SupersetErrorType.GENERIC_DB_ENGINE_ERROR,
+            message,
+            level,
+            extra,
         )
 
 
@@ -123,7 +128,10 @@ class SupersetTemplateParamsErrorException(SupersetErrorFromParamsException):
         extra: Optional[Dict[str, Any]] = None,
     ) -> None:
         super().__init__(
-            error, message, level, extra,
+            error,
+            message,
+            level,
+            extra,
         )
 
 
@@ -189,7 +197,6 @@ class InvalidPayloadFormatError(SupersetErrorException):
             message=message,
             error_type=SupersetErrorType.INVALID_PAYLOAD_FORMAT_ERROR,
             level=ErrorLevel.ERROR,
-            extra={},
         )
         super().__init__(error)
 
